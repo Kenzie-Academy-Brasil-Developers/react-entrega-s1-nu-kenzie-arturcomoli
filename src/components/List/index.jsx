@@ -1,15 +1,23 @@
-const List = () => {
+import "./styles.css";
+import Button from "../Button";
+import Card from "../Card";
+const List = ({ listTransactions }) => {
   return (
     <aside>
-      <div>
-        <h2>Resumo financeiro</h2>
+      <div className="aside-flex">
+        <h3>Resumo financeiro</h3>
         <div>
-          <button>Todos</button>
-          <button>Entradas</button>
-          <button>Despesas</button>
+          <Button children={"Todos"} className={"todos"} />
+          <Button children={"Entradas"} className={"list-button"} />
+          <Button children={"Despesas"} className={"list-button"} />
         </div>
       </div>
-      <ul></ul>
+      <ul>
+        <Card className={"entrada"} />
+        <Card className={"despesa"} />
+        <Card />
+        <Card />
+      </ul>
     </aside>
   );
 };

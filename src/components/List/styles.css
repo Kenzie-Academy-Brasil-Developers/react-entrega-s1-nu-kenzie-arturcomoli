@@ -1,0 +1,31 @@
+aside {
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+aside h3 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  color: #212529;
+}
+aside ul {
+  padding: 0;
+}
+
+@media screen and (min-width: 900px) {
+  aside {
+    margin-left: 4%;
+    width: 70%;
+    max-width: none;
+  }
+
+  .aside-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
