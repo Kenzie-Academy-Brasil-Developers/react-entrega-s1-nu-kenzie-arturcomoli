@@ -1,18 +1,34 @@
 import "./styles.css";
 import Button from "../Button";
 import { useState } from "react";
-// import { useForm } from "react-hook-form";
 
 const Form = ({ listTransactions, setListTransactions }) => {
   const [descricao, setDescricao] = useState("");
   const [valor, setValor] = useState("");
   const [tipo, setTipo] = useState("");
+  const [maxId, setMaxId] = useState(
+    listTransactions.reduce(
+      (prev, cur) => (prev.maxId > cur.maxId ? prev.maxId : cur.maxId),
+      0
+    )
+  );
+
+  const gerarId = () => {
+    console.log("id gerado");
+    setMaxId(maxId + 1);
+    console.log(maxId);
+    return maxId;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setTipo();
+    gerarId();
     if (tipo !== undefined && descricao && valor) {
-      setListTransactions([...listTransactions, { descricao, valor, tipo }]);
+      setListTransactions([
+        ...listTransactions,
+        { descricao, valor, tipo, maxId },
+      ]);
     }
   };
 
@@ -55,11 +71,7 @@ const Form = ({ listTransactions, setListTransactions }) => {
           </select>
         </div>
       </div>
-      <Button
-        // onClick={(e) => handleListTransactions(e)}
-        className={"form-button"}
-        children={"Inserir valor"}
-      />
+      <Button className={"form-button"} children={"Inserir valor"} />
     </form>
   );
 };

@@ -2,7 +2,19 @@ import "./styles.css";
 import Button from "../Button";
 import Card from "../Card";
 import Vazio from "./Vazio.png";
+// import { useState } from "react";
 const List = ({ listTransactions, setListTransactions, deletar }) => {
+  // const [maxId, setMaxId] = useState(
+  //   listTransactions.reduce((prev, cur) => (prev.id > cur.id ? prev : cur), 0)
+  // );
+  // console.log(maxId);
+
+  // const gerarId = () => {
+  //   console.log("oi");
+  //   setMaxId(maxId + 1);
+  //   return maxId;
+  // };
+
   return (
     <aside>
       <div className="aside-flex">
@@ -17,7 +29,6 @@ const List = ({ listTransactions, setListTransactions, deletar }) => {
         {listTransactions.length === 0 ? (
           <div>
             <img src={Vazio} alt="#" />
-
             <img src={Vazio} alt="#" />
             <img src={Vazio} alt="#" />
           </div>
@@ -33,7 +44,7 @@ const List = ({ listTransactions, setListTransactions, deletar }) => {
               listTransactions={listTransactions}
               setListTransactions={setListTransactions}
               deletar={deletar}
-              itemDeletar={transaction.descricao}
+              itemDeletar={transaction.maxId}
               tipoDeletar={transaction.tipo}
               valorDeletar={transaction.valor}
             />

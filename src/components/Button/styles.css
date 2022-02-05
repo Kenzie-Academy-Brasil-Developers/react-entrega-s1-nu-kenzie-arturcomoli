@@ -23,6 +23,10 @@ button:active {
   background-color: #868e96;
 }
 
+.inicial-button {
+  width: 200px;
+}
+
 .header-button {
   /* background-color: #e9ecef;
   color: #868e96; */

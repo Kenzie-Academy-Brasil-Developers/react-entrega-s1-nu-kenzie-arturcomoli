@@ -1,14 +1,24 @@
-const InitialPage = () => {
+import Button from "../Button";
+import img from "./img.png";
+import logo from "./logo.svg";
+import "./styles.css";
+// import { useState } from "react";
+
+const InitialPage = ({ handleLogin }) => {
   return (
-    <section>
-      <div>
-        <img src="#" alt="#" />
+    <section className="pagina-inicial">
+      <div className="textos">
+        <img src={logo} alt="#" className="logo" />
         <p>Centralize o controle das suas finanças</p>
         <span>de forma rápida e segura</span>
-        <button>Iniciar</button>
+        <Button
+          children={"Iniciar"}
+          className={"inicial-button"}
+          onClick={handleLogin}
+        />
       </div>
-      <div>
-        <img src="#" alt="#" />
+      <div className="imagem">
+        <img src={img} alt="#" />
       </div>
     </section>
   );

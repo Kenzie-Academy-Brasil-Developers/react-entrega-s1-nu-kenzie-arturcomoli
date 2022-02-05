@@ -4,46 +4,52 @@ import Header from "./components/Header";
 import Form from "./components/Form";
 import TotalMoney from "./components/TotalMoney";
 import List from "./components/List";
+import InitialPage from "./components/InitialPage";
 
 function App() {
-  const [listTransactions, setListTransactions] = useState([
-    {
-      descricao: "teste Entrada",
-      valor: "2.50",
-      tipo: "Entrada",
-    },
-    {
-      descricao: "teste Despesa",
-      valor: "2.50",
-      tipo: "Despesa",
-    },
-  ]);
-  console.log(listTransactions);
+  const [listTransactions, setListTransactions] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const deletar = (itemDeletar, tipoDeletar, valorDeletar) => {
+  const handleLogin = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
+  const deletar = (itemDeletar) => {
     const encontrar = listTransactions.find((item) => {
       console.log(item);
       console.log(itemDeletar);
-      console.log(item.descricao);
-      console.log(tipoDeletar);
-      console.log(item.tipo);
-      return (
-        item.descricao === itemDeletar &&
-        item.tipo === tipoDeletar &&
-        item.valor === valorDeletar
-      );
+      return item.maxId === itemDeletar;
     });
-    console.log(encontrar);
     const indice = listTransactions.indexOf(encontrar);
-    console.log(indice);
     const arr = [...listTransactions];
-    console.log(arr);
     arr.splice(indice, 1);
     setListTransactions(arr);
   };
+
   return (
     <div className="App">
-      <Header />
+      {!isLoggedIn ? (
+        <InitialPage handleLogin={handleLogin} />
+      ) : (
+        <>
+          <Header handleLogin={handleLogin} />
+          <main>
+            <section>
+              <Form
+                listTransactions={listTransactions}
+                setListTransactions={setListTransactions}
+              />
+              <TotalMoney listTransactions={listTransactions} />
+            </section>
+            <List
+              listTransactions={listTransactions}
+              setListTransactions={setListTransactions}
+              deletar={deletar}
+            />
+          </main>
+        </>
+      )}
+      {/* <Header handleLogin={handleLogin}/>
       <main>
         <section>
           <Form
@@ -57,7 +63,7 @@ function App() {
           setListTransactions={setListTransactions}
           deletar={deletar}
         />
-      </main>
+      </main> */}
     </div>
   );
 }

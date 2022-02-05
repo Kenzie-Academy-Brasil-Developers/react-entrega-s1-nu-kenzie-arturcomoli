@@ -9,15 +9,17 @@ const Card = ({
   itemDeletar,
   tipoDeletar,
   valorDeletar,
+  id,
 }) => {
   return (
-    <li className={className}>
+    <li className={className} id={id}>
       <div className="li-flex">
         <h3>{descricao}</h3>
         <span>R$ {valor}</span>
         <div
           className="trash-icon"
-          onClick={() => deletar(itemDeletar, tipoDeletar, valorDeletar)}
+          onClick={() => deletar(itemDeletar)}
+          // , tipoDeletar, valorDeletar
         >
           <FaTrash />
         </div>
