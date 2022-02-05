@@ -1,7 +1,7 @@
 aside {
   width: 100%;
   max-width: 460px;
-  text-align: center;
+  /* text-align: center; */
   margin: 0 auto;
 }
 
@@ -14,6 +14,23 @@ aside h3 {
 }
 aside ul {
   padding: 0;
+}
+
+.vazio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #868e96;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  line-height: 34px;
+}
+
+.vazio img {
+  width: 100%;
+  /* text-align: left; */
 }
 
 @media screen and (min-width: 900px) {

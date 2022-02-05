@@ -27,7 +27,8 @@ const List = ({ listTransactions, setListTransactions, deletar }) => {
       </div>
       <ul>
         {listTransactions.length === 0 ? (
-          <div>
+          <div className="vazio">
+            <p>Não existem lançamentos ainda!!</p>
             <img src={Vazio} alt="#" />
             <img src={Vazio} alt="#" />
             <img src={Vazio} alt="#" />
