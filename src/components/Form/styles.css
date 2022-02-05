@@ -29,6 +29,11 @@ select {
   width: 100%;
 }
 
+.inputs input,
+select:focus {
+  color: #212529;
+}
+
 form label {
   font-size: 12px;
   font-family: "Inter", sans-serif;
@@ -56,6 +61,11 @@ select {
   padding: 13px 0 13px 16px;
   color: #868e96;
   margin: 6px 0;
+}
+
+input:focus,
+select:focus {
+  background-color: #ffffff;
 }
 
 form input::placeholder {
