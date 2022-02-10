@@ -9,7 +9,7 @@ import InitialPage from "./components/InitialPage";
 function App() {
   const [listTransactions, setListTransactions] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [listaFiltrada, setListaFiltrada] = useState([])
+  // const [listaFiltrada, setListaFiltrada] = useState([]);
 
   const handleLogin = () => {
     setIsLoggedIn(!isLoggedIn);
@@ -25,19 +25,18 @@ function App() {
     setListTransactions(arr);
   };
 
-  const filtrarTodos = () => {
-    setListTransactions(listTransactions);
-  };
+  // const filtrarTodos = () => {
+  //   setListaFiltrada(listTransactions);
+  // };
 
-  const filtrar = (tipo) => {
-    const filtrados = listTransactions.filter((item) => {
-      console.log(item.tipo);
-      console.log(tipo);
-      return item.tipo === tipo;
-    });
-    setListTransactions(filtrados);
-  };
+  // const filtrar = (tipo) => {
+  //   const filtrados = listTransactions.filter((item) => {
+  //     return item.tipo === tipo;
+  //   });
+  //   setListaFiltrada(filtrados);
+  // };
   console.log(listTransactions);
+  // console.log(listaFiltrada);
 
   return (
     <div className="App">
@@ -58,8 +57,9 @@ function App() {
               listTransactions={listTransactions}
               setListTransactions={setListTransactions}
               deletar={deletar}
-              filtrar={filtrar}
-              filtrarTodos={filtrarTodos}
+              // filtrar={filtrar}
+              // filtrarTodos={filtrarTodos}
+              // listaFiltrada={listaFiltrada}
             />
           </main>
         </>

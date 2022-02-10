@@ -14,17 +14,15 @@ const Form = ({ listTransactions, setListTransactions }) => {
   );
 
   const gerarId = () => {
-    console.log("id gerado");
     setMaxId(maxId + 1);
-    console.log(maxId);
     return maxId;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTipo();
+    // setTipo();
     gerarId();
-    if (tipo !== undefined && descricao && valor) {
+    if (tipo !== "-------" && descricao !== "") {
       setListTransactions([
         ...listTransactions,
         { descricao, valor, tipo, maxId },
@@ -33,7 +31,7 @@ const Form = ({ listTransactions, setListTransactions }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container-form">
       <label htmlFor="descricao">Descrição</label>
       <input
         type="text"
@@ -46,7 +44,8 @@ const Form = ({ listTransactions, setListTransactions }) => {
         <div className="filho">
           <label htmlFor="valor">Valor</label>
           <input
-            type="text"
+            step={0.01}
+            type="number"
             placeholder="R$ 1.50"
             onChange={(e) => {
               e.target.value.includes(",")
@@ -56,19 +55,20 @@ const Form = ({ listTransactions, setListTransactions }) => {
           />
         </div>
         <div className="tipo filho">
-          <label htmlFor="tipo">Tipo de valor</label>
-          <select
-            name="tipo"
-            className="ls-select"
-            id="tipo"
-            onChange={(e) => {
-              e.target.value !== "-------" && setTipo(e.target.value);
-            }}
-          >
-            <option>-------</option>
-            <option value="Entrada">Entrada</option>
-            <option value="Despesa">Despesa</option>
-          </select>
+          <label>
+            Tipo de valor
+            <select
+              name="tipo"
+              className="ls-select"
+              onChange={(e) => {
+                setTipo(e.target.value);
+              }}
+            >
+              <option value={"-------"}>-------</option>
+              <option value="Entrada">Entrada</option>
+              <option value="Despesa">Despesa</option>
+            </select>
+          </label>
         </div>
       </div>
       <Button className={"form-button"} children={"Inserir valor"} />

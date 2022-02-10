@@ -1,4 +1,4 @@
-form {
+.container-form {
   display: flex;
   flex-direction: column;
   width: calc(100% - 2 * 25px);
@@ -34,7 +34,7 @@ select:focus {
   color: #212529;
 }
 
-form label {
+.container-form label {
   font-size: 12px;
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -43,7 +43,7 @@ form label {
   margin: 6px 0;
 }
 
-form span {
+.container-form span {
   font-family: "Inter", sans-serif;
   color: #868e96;
   font-size: 12px;
@@ -52,7 +52,7 @@ form span {
   margin: 6px 0 17px 0;
 }
 
-form input,
+.container-form input,
 select {
   border: 2px solid #f8f9fa;
   background-color: #f8f9fa;
@@ -68,7 +68,7 @@ select:focus {
   background-color: #ffffff;
 }
 
-form input::placeholder {
+.container-form input::placeholder {
   color: #868e96;
   font-size: 16px;
 }
